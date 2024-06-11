@@ -2,11 +2,6 @@
 import React from "react";
 
 export const Nav = () => {
-  const navItems = [
-    { link: "Home", path: "/home" },
-    { link: "Pricing", path: "/pricing" },
-    { link: "Explore", path: "/explore" },
-  ];
 
   return (
     <header className="w-full">
@@ -15,19 +10,13 @@ export const Nav = () => {
           {/* Logo */}
           <h1>Veecert</h1>
 
-          {/* Nav Links */}
-          <ul className="md:flex space-x-12 hidden">
-            {navItems.map(({ link, path }) => (
-              <li key={path}>
-                <a
-                  href={path}
-                  className="block text-base first:font-medium text-black hover:text-slate-900"
-                >
-                  {link}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {/* Nav Links */}
+        <div className="space-x-12 lg:flex hidden items-center">
+          <a href="#home" className="text-gray-200 hover:text-white transition duration-200">Home</a>
+          <a href="#pricing" className="text-gray-200 hover:text-white transition duration-200">Pricing</a>
+          <a href="#explore" className="text-gray-200 hover:text-white transition duration-200">Explore</a>
+          <a href="#admin" className="text-gray-200 hover:text-white transition duration-200">Admin</a>
+        </div>
 
           {/* Button */}
           <div className="space-x-12 lg:flex hidden items-center">

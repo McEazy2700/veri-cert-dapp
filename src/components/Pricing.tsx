@@ -5,7 +5,7 @@ const Pricing = () => {
   const [isAnnual, setIsAnnual] = useState<boolean>(true);
 
   return (
-    <div>
+    <div id="pricing">
       {/* Pricing toggle */}
       <div className="flex justify-center pt-8 max-w-[14rem] m-auto mb-8 lg:mb-16">
         <div className="relative flex w-full p-1 bg-white dark:bg-transparent shadow-lg rounded-md">

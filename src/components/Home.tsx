@@ -3,7 +3,7 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div className="pt-4 p-20 m-8 text-center mx-auto pb-6 text-white">
+    <div id="home" className="pt-4 p-20 m-8 text-center mx-auto pb-6 text-white">
       <div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Open your secure certificate with the best pricing
