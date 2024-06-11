@@ -103,7 +103,7 @@ export function Explore() {
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell className="font-medium">
+                        <TableCell  className="font-medium">
                           AeroGlow Desk Lamp
                         </TableCell>
                         <TableCell className="font-bold">5.4MB</TableCell>
@@ -112,7 +112,7 @@ export function Explore() {
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell className="font-medium">
+                        <TableCell href="/document" className="font-medium">
                           TechTonic Energy Drink
                         </TableCell>
                         <TableCell className="font-bold">5.4MB</TableCell>
