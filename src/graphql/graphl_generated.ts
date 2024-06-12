@@ -168,7 +168,7 @@ export type PackageType = {
 
 export type PurchasePackageInput = {
   packageId: Scalars['Union']['input'];
-  txnIn: Scalars['String']['input'];
+  txnIn?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type Query = {
@@ -235,6 +235,13 @@ export type PackagesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PackagesQuery = { __typename?: 'Query', packages: Array<{ __typename?: 'PackageType', id: any, monthlyRequests: any, name: string, offers: Array<string>, price: any, storageCapacity: any }> };
+
+export type UserClientQueryVariables = Exact<{
+  userId: Scalars['Int']['input'];
+}>;
+
+
+export type UserClientQuery = { __typename?: 'Query', userClient: { __typename?: 'ClientType', usedStorage: number, clientPackage?: { __typename?: 'ClientPackageType', id: number, package: { __typename?: 'PackageType', name: string, id: any, storageCapacity: any } } | null } };
 
 
 export const EmailPasswordSignUpDocument = gql`
@@ -337,4 +344,23 @@ export const PackagesDocument = gql`
 
 export function usePackagesQuery(options?: Omit<Urql.UseQueryArgs<PackagesQueryVariables>, 'query'>) {
   return Urql.useQuery<PackagesQuery, PackagesQueryVariables>({ query: PackagesDocument, ...options });
+};
+export const UserClientDocument = gql`
+    query UserClient($userId: Int!) {
+  userClient(userId: $userId) {
+    clientPackage {
+      id
+      package {
+        name
+        id
+        storageCapacity
+      }
+    }
+    usedStorage
+  }
+}
+    `;
+
+export function useUserClientQuery(options: Omit<Urql.UseQueryArgs<UserClientQueryVariables>, 'query'>) {
+  return Urql.useQuery<UserClientQuery, UserClientQueryVariables>({ query: UserClientDocument, ...options });
 };

@@ -17,7 +17,7 @@ export function getAlgodConfigFromViteEnvironment(): AlgoViteClientConfig {
 
   return {
     server: process.env.NEXT_PUBLIC_ALGOD_SERVER,
-    port: unwrapEnvVar("NEXT_PUBLIC_ALGOD_PORT"),
+    port: process.env.NEXT_PUBLIC_ALGOD_PORT ?? "",
     token: unwrapEnvVar("NEXT_PUBLIC_ALGOD_TOKEN"),
     network: unwrapEnvVar("NEXT_PUBLIC_ALGOD_NETWORK"),
   };

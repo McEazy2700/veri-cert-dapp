@@ -64,7 +64,7 @@ const SignUp = () => {
 						height={100}
 						alt="vericert"
 					/>
-					<h1>Create An Account</h1>
+					<h1>Sign In</h1>
 				</div>
 				<Form {...form}>
 					<form
@@ -97,7 +97,10 @@ const SignUp = () => {
 									<FormControl>
 										<Input
 											size={40}
-                      type="password" placeholder="*********" {...field} />
+											type="password"
+											placeholder="*********"
+											{...field}
+										/>
 									</FormControl>
 									<FormMessage />
 								</FormItem>
