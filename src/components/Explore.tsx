@@ -1,6 +1,5 @@
-import { PanelLeft, Search } from "lucide-react";
+"use client"
 
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,15 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-} from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import {
   Table,
   TableBody,
@@ -29,37 +19,12 @@ import { Tabs, TabsContent } from "@/components/ui/tabs";
 
 export function Explore() {
   return (
-    <div id="explore" className=" flex min-h-screen w-full flex-col bg-muted/40">
+    <div
+      id="explore"
+      className=" flex min-h-screen w-full flex-col bg-muted/40"
+    >
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button size="icon" variant="outline" className="sm:hidden">
-                <PanelLeft className="h-5 w-5" />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-          </Sheet>
-          <div className="relative ml-auto flex-1 md:grow-0">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
-            />
-          </div>
-          <DropdownMenu>
-            <DropdownMenuContent align="end">
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Support</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </header>
-        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+        <div className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <Tabs defaultValue="all">
             <TabsContent value="all">
               <Card x-chunk="dashboard-06-chunk-0">
@@ -103,7 +68,7 @@ export function Explore() {
                         </TableCell>
                       </TableRow>
                       <TableRow>
-                        <TableCell  className="font-medium">
+                        <TableCell className="font-medium">
                           AeroGlow Desk Lamp
                         </TableCell>
                         <TableCell className="font-bold">5.4MB</TableCell>
@@ -144,7 +109,7 @@ export function Explore() {
               </Card>
             </TabsContent>
           </Tabs>
-        </main>
+        </div>
       </div>
     </div>
   );

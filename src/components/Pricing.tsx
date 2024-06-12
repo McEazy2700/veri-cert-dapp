@@ -59,8 +59,8 @@ const Pricing = () => {
                 suffered.
               </div>
               <a
-                className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-transparent border border-teal-300 border-2 px-3.5 py-2.5 text-md font-medium text-slate-900 shadow-lg shadow-teal-950/10 hover:bg-teal-300 hover:text-slate-900 hover:font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-teal-300 dark:focus-visible:ring-slate-600 transition-colors duration-150"
-                href="#0"
+                className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-transparent border-teal-300 border-2 px-3.5 py-2.5 text-md font-medium text-slate-900 shadow-lg shadow-teal-950/10 hover:bg-teal-300 hover:text-slate-900 hover:font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-teal-300 dark:focus-visible:ring-slate-600 transition-colors duration-150"
+                href="/signup"
               >
                 Purchase Plan
               </a>
@@ -115,7 +115,7 @@ const Pricing = () => {
 
         {/* Table 2 */}
         <div className="h-full dark">
-          <div className="relative flex flex-col h-full p-6 rounded-2xl bg-white dark:bg-transparent border border-black border-4 dark:border-black shadow shadow-slate-950/5">
+          <div className="relative flex flex-col h-full p-6 rounded-2xl bg-white dark:bg-transparent border-black border-4 dark:border-black shadow shadow-slate-950/5">
             <div className="mb-5">
               <div className="pb-2 text-slate-900 dark:text-slate-200 font-semibold mb-1">
                 Enterprise
@@ -207,7 +207,7 @@ const Pricing = () => {
                 suffered.
               </div>
               <a
-                className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-transparent border border-teal-300 border-2 px-3.5 py-2.5 text-md font-medium text-slate-500 shadow-lg shadow-teal-950/10 hover:bg-teal-300 hover:text-slate-900 hover:font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-teal-300 dark:focus-visible:ring-slate-600 transition-colors duration-150"
+                className="w-full inline-flex justify-center whitespace-nowrap rounded-lg bg-transparent border-teal-300 border-2 px-3.5 py-2.5 text-md font-medium text-slate-500 shadow-lg shadow-teal-950/10 hover:bg-teal-300 hover:text-slate-900 hover:font-semibold focus-visible:outline-none focus-visible:ring focus-visible:ring-teal-300 dark:focus-visible:ring-slate-600 transition-colors duration-150"
                 href="#0"
               >
                 Purchase Plan
