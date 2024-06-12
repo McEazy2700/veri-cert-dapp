@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useEmailPasswordSignUpMutation } from "@/graphql/graphl_generated";
+import { useEmailPasswordSignInMutation } from "@/graphql/graphl_generated";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { useSetAtom } from "jotai";
@@ -22,14 +22,13 @@ import { setAuthTokens } from "@/utils/localStorage";
 
 const formSchema = z.object({
 	email: z.string().min(2, { message: "Please Enter a valid name" }),
-	password1: z.string().min(2, { message: "Your password is too short" }),
-	password2: z.string().min(2, { message: "Your password is too short" }),
+	password: z.string().min(2, { message: "Your password is too short" }),
 });
 type FormSchema = z.infer<typeof formSchema>;
 const SignUp = () => {
 	const router = useRouter();
 	const setUser = useSetAtom(userStateAtom);
-	const [{ fetching }, mutate] = useEmailPasswordSignUpMutation();
+	const [{ fetching }, mutate] = useEmailPasswordSignInMutation();
 	const form = useForm<FormSchema>({
 		resolver: zodResolver(formSchema),
 	});
@@ -40,18 +39,17 @@ const SignUp = () => {
 			args: value,
 		});
 		if (error?.graphQLErrors.length) {
-			console.log(error);
 			toast({
 				title: "SignUp Error",
 				description: error.graphQLErrors[0].message,
 				variant: "destructive",
 			});
-		} else if (data?.emailPasswordSignup) {
+		} else if (data?.emailPasswordSignin) {
 			setAuthTokens({
-				token: data.emailPasswordSignup.token,
-				refreshToken: data.emailPasswordSignup.refreshToken,
+				token: data.emailPasswordSignin.token,
+				refreshToken: data.emailPasswordSignin.refreshToken,
 			});
-			setUser(data.emailPasswordSignup.user);
+			setUser(data.emailPasswordSignin.user);
 			router.replace("/admin");
 		}
 	};
@@ -91,38 +89,22 @@ const SignUp = () => {
 							)}
 						/>
 						<FormField
-							name="password1"
+							name="password"
 							control={form.control}
 							render={({ field }) => (
 								<FormItem>
 									<FormLabel>Password</FormLabel>
 									<FormControl>
-										<Input type="password" placeholder="*********" {...field} />
-									</FormControl>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-						<FormField
-							name="password2"
-							control={form.control}
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Confirm Password</FormLabel>
-									<FormControl>
 										<Input
 											size={40}
-											type="password"
-											placeholder="*********"
-											{...field}
-										/>
+                      type="password" placeholder="*********" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
 							)}
 						/>
 						<Button loading={fetching} disabled={fetching} type="submit">
-							SignUp
+							SignIn
 						</Button>
 					</form>
 				</Form>
